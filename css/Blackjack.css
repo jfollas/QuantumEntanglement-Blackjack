@@ -1,0 +1,28 @@
+﻿body
+{
+}
+
+
+ul
+{
+    list-style-type: none;
+    padding: 0px;
+    padding-left: 71px
+}
+li
+{
+    display: inline-block;
+    margin-left: -58px;
+}
+
+.allPlayers
+{
+    vertical-align: top;
+}
+.playersHand
+{
+    display: inline-block;
+    min-width: 100px;
+    padding: 10px;   
+    text-align:center;
+}
