@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\Blackjack.css" />
+    <Content Include="default.aspx" />
     <Content Include="Game.htm" />
     <Content Include="images\b1fh.png" />
     <Content Include="images\b1fv.png" />
@@ -154,6 +155,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
     <Compile Include="hubs\GameHub.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -38,6 +38,13 @@ Blackjack.Game = function() {
         }
     };
 
+    this.inPlay.subscribe(function(val) {
+        if (val === false)
+            self.players.remove(function(p) {
+                p.disconnected() === true; 
+            });
+    });
+
     $.connection.gameHub.playerDisconnected = function(num) {
         self.players()[num].disconnected(true);
 

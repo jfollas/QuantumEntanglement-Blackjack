@@ -140,6 +140,12 @@ namespace CardGame.hubs
                 {
                     index = playerConnections[Context.ConnectionId];
                     playerConnections.Remove(Context.ConnectionId);
+
+                    foreach (var item in playerConnections.Keys.ToList())
+                    {
+                        if (playerConnections[item] > index)
+                            playerConnections[item] = playerConnections[item] - 1;
+                    }
                 }
             }
             
