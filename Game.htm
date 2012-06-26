@@ -26,7 +26,7 @@
 </div>
 
 <div id="allPlayers" data-bind="foreach: players">
-    <div class="playersHand" data-bind="style: { backgroundColor: $root.currentIndex() == playerNumber() ? 'yellow' : ''}">
+    <div class="playersHand" data-bind="css: { currentPlayer: $root.currentIndex() == playerNumber() }">
         <h3>Player <span data-bind="text: playerNumber() + 1"></span>: 
         <span data-bind="text: total"></span></h3>
         <ul data-bind="foreach: hand">

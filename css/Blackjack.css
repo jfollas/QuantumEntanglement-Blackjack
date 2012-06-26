@@ -1,5 +1,12 @@
 ﻿body
 {
+    background-image: url('/images/felt.png');
+    background-size: 100%;
+    background-repeat:no-repeat;
+    color: white;
+    font-weight: bold;
+    font-size: 16pt;
+    font-family: Arial, Sans-Serif;
 }
 
 
@@ -25,4 +32,9 @@ li
     min-width: 100px;
     padding: 10px;   
     text-align:center;
+}
+.currentPlayer
+{
+    background-color:Yellow;
+    color:Black;
 }
