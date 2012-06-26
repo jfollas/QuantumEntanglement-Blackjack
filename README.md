@@ -7,3 +7,8 @@ Code demonstrating Knockout.js and SignalR working together to make a multi-play
 2. Start game.htm in multiple browsers.
 3. Click [Join] in each browser to join the game.
 4. Click [Deal] in one of the browsers to start the game.
+
+Note: There is also a version hosted on AppHarbor:
+
+http://quantumentanglementblackjack.apphb.com/game.htm
+
