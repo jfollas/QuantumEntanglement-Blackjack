@@ -77,7 +77,7 @@ Blackjack.Game = function() {
     };
 
     this.hit = function() {
-        $.connection.gameHub.hit(self.currentIndex(), self.currentPlayer().total());
+        $.connection.gameHub.hit(self.currentIndex(), self.currentPlayer().total(), self.currentPlayer().numAces());
     };
 
 
@@ -168,17 +168,26 @@ Blackjack.Player = function(playerNumber) {
         this.winner(false);
     };
 
-    this.total = ko.computed(function() {
-        var sum = 0;
+    this.numAces = ko.computed(function() {
         var numAces = 0;
+
         ko.utils.arrayForEach(self.hand(), function(card) {
-            sum += card.value();
             if (card.rank === 'A')
                 numAces++
         });
 
+        return numAces;
+    });
+
+    this.total = ko.computed(function() {
+        var sum = 0;
+
+        ko.utils.arrayForEach(self.hand(), function(card) {
+            sum += card.value();
+        });
+
         if (sum > 21) {
-            for (var i = 0; i < numAces; i++) {
+            for (var i = 0; i < self.numAces(); i++) {
                 sum -= 10;
                 if (sum <= 21)
                     break;

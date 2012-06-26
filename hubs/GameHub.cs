@@ -72,14 +72,14 @@ namespace CardGame.hubs
             }
         }
 
-        public void Hit(int idx, int valueBeforeHit)
+        public void Hit(int idx, int valueBeforeHit, int numAces)
         {
             if (playerConnections.ContainsKey(Context.ConnectionId) && gameState.InPlay)
             {
                 var card = new RandomCard();
                 Clients.dealCard(idx, card.Rank, card.Suit, false);
 
-                if (valueBeforeHit + card.Value >= 21)
+                if (valueBeforeHit + card.Value >= 21 && numAces == 0)
                     Clients.nextPlayer();
             }
         }
