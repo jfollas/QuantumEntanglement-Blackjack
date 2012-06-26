@@ -15,7 +15,7 @@ Blackjack.Game = function() {
     this.players = ko.observableArray([]);
 
     this.currentIndex = ko.observable();
-    this.yourIndex = ko.observable();
+    this.yourIndex = ko.observable(-1);
 
     this.currentPlayer = ko.observable();
 
@@ -96,7 +96,7 @@ Blackjack.Game = function() {
 
         idx++;
 
-        while (idx < self.players().length && self.players()[idx].disconnected() == true) {
+        while (idx < self.players().length && (self.players()[idx].disconnected() === true || self.players()[idx].total() === 0)) {
             idx++;
         }
 

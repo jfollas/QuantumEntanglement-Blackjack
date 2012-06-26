@@ -142,7 +142,7 @@ namespace CardGame.hubs
                     //playerConnections.Remove(Context.ConnectionId);
                 }
             }
-            
+
             if (index != -1)
                 Clients.playerDisconnected(index);
 
@@ -155,7 +155,7 @@ namespace CardGame.hubs
 
             return null;
         }
-        
+
 
         private class RandomCard
         {
