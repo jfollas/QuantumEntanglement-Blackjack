@@ -38,3 +38,9 @@ li
     background-color:Yellow;
     color:Black;
 }
+
+.disconnectedPlayer
+{
+    background-color: #fcc;
+    color:Black;
+}

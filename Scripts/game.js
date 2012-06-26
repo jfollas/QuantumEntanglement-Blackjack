@@ -12,7 +12,6 @@ Blackjack.Game = function() {
     this.inGame = ko.observable(false);
 
     this.dealer = ko.observable(new Blackjack.Player());
-
     this.players = ko.observableArray([]);
 
     this.currentIndex = ko.observable();
@@ -38,12 +37,6 @@ Blackjack.Game = function() {
         }
     };
 
-    this.inPlay.subscribe(function(val) {
-        if (val === false)
-            self.players.remove(function(p) {
-                p.disconnected() === true; 
-            });
-    });
 
     $.connection.gameHub.playerDisconnected = function(num) {
         self.players()[num].disconnected(true);
@@ -99,9 +92,13 @@ Blackjack.Game = function() {
         var idx = self.currentIndex();
 
         if (idx === undefined)
-            idx = 0;
-        else
+            idx = -1;
+
+        idx++;
+
+        while (idx < self.players().length && self.players()[idx].disconnected() == true) {
             idx++;
+        }
 
         if (idx < self.players().length) {
             self.currentIndex(idx);

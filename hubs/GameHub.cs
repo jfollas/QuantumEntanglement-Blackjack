@@ -139,19 +139,20 @@ namespace CardGame.hubs
                 if (playerConnections.ContainsKey(Context.ConnectionId))
                 {
                     index = playerConnections[Context.ConnectionId];
-                    playerConnections.Remove(Context.ConnectionId);
-
-                    foreach (var item in playerConnections.Keys.ToList())
-                    {
-                        if (playerConnections[item] > index)
-                            playerConnections[item] = playerConnections[item] - 1;
-                    }
+                    //playerConnections.Remove(Context.ConnectionId);
                 }
             }
             
             if (index != -1)
                 Clients.playerDisconnected(index);
-           
+
+            gameState.Disconnections++;
+            if (gameState.Disconnections == playerConnections.Keys.Count)
+            {
+                playerConnections.Clear();
+                gameState.Disconnections = 0;
+            }
+
             return null;
         }
         
@@ -185,6 +186,7 @@ namespace CardGame.hubs
         {
             public bool InPlay;
             public bool DealerFinishing;
+            public int Disconnections;
         }
     }
 }
